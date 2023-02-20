@@ -1,17 +1,16 @@
 # python3
 
-from collections import namedtuple
 
 from collections import namedtuple
 
 Bracket = namedtuple("Bracket", ["char", "position"])
 
 
-def are_matching(left: Bracket.char, right: Bracket.char) -> bool:
+def are_matching(left, right):
     return (left + right) in ["()", "[]", "{}"]
 
 
-def find_mismatch(text: str) -> str | int:
+def find_mismatch(text):
     opening_brackets_stack = []
     for i, next in enumerate(text, start=1):
         # add bracket to array
@@ -23,7 +22,7 @@ def find_mismatch(text: str) -> str | int:
     return "Success"
 
 
-def main() -> None:
+def main():
     input_choice = input("[(F)ile/(I)nput]: ")
     if "F" in input_choice:
         pass
