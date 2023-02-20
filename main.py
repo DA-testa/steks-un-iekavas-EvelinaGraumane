@@ -24,13 +24,13 @@ def find_mismatch(text):
     return "Success"
 
 def main():
-    source = input("Choose input (F for file, I for keyboard): ")
+    source = input("")
     if source == "F":
-        file_name = input("Enter file name: ")
-        with open(file_name, "r") as f:
+        file_name = input("")
+        with open(file_name, "r", encoding="utf-8") as f:
             text = f.read().strip()
     elif source == "I":
-        text = input("Enter brackets: ")
+        text = input("")
     else:
         print("Invalid input.")
         return
