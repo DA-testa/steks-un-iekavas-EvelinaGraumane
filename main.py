@@ -9,14 +9,16 @@ def are_matching(left, right):
 
 def find_mismatch(text):
     opening_brackets_stack = []
-    for i, next_char in enumerate(text):
-        if next_char in "([{":
-            opening_brackets_stack.append(Bracket(next_char, i + 1))
-        if next_char in ")]}":
+    for i, next in enumerate(text):
+        if next in "([{":
+            opening_brackets_stack.append(Bracket(next, i + 1))
+
+        if next in ")]}":
+            # Process closing bracket
             if not opening_brackets_stack:
                 return i + 1
             top = opening_brackets_stack.pop()
-            if not are_matching(top.char, next_char):
+            if not are_matching(top.char, next):
                 return i + 1
     if opening_brackets_stack:
         top = opening_brackets_stack.pop()
@@ -24,22 +26,12 @@ def find_mismatch(text):
     return "Success"
 
 def main():
-    source = input("")
-    if source == "F":
-        file_name = input("")
-        with open(file_name, "r", encoding="utf-8") as f:
-            text = f.read().strip()
-    elif source == "I":
-        text = input("")
-    else:
-        print("Invalid input.")
-        return
-    
+    text = input()
     mismatch = find_mismatch(text)
     if isinstance(mismatch, int):
         print(mismatch)
     else:
-        print(mismatch)
+        print("Success")
 
 if __name__ == "__main__":
     main()
