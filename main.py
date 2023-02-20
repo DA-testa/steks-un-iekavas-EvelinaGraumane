@@ -29,7 +29,7 @@ def main():
     if isinstance(mismatch, int):
         print(mismatch)
     else:
-        print("Success")
+        print(mismatch)
 
 if __name__ == "__main__":
     main()
