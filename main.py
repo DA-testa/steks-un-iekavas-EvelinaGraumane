@@ -24,7 +24,17 @@ def find_mismatch(text):
     return "Success"
 
 def main():
-    text = input()
+    source = input("Choose input (F for file, I for keyboard): ")
+    if source == "F":
+        file_name = input("Enter file name: ")
+        with open(file_name, "r") as f:
+            text = f.read().strip()
+    elif source == "I":
+        text = input("Enter brackets: ")
+    else:
+        print("Invalid input.")
+        return
+    
     mismatch = find_mismatch(text)
     if isinstance(mismatch, int):
         print(mismatch)
